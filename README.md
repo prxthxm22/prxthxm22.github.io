@@ -3,33 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to My Website</title>
-    <meta name="description" content="Welcome to Pratham's personal website.">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .welcome-container {
-            text-align: center;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            color: #333;
-        }
-    </style>
+    <title>Pratham Shetty - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="welcome-container">
-        <h1>Welcome to My Website, Pratham!</h1>
-    </div>
+    <div id="root"></div>
+    <script src="index.js"></script>
 </body>
 </html>
+
+/* styles.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #0a192f;
+    color: #fff;
+}
+
+/* index.js */
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+
+ReactDOM.render(<App />, document.getElementById('root'));
+
+/* App.js */
+import React from 'react';
+
+const App = () => {
+  return (
+    <div className="portfolio">
+      <header>
+        <nav>
+          <h1>Pratham Shetty</h1>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <main>
+        <section id="hero">
+          <h1>Hi, I'm Pratham Shetty</h1>
+          <p>BCA Student | Web Developer</p>
+        </section>
+
+        <section id="about">
+          <h2>About Me</h2>
+          <p>I'm a second-year BCA student passionate about web development and creating modern, user-friendly applications.</p>
+        </section>
+
+        <section id="skills">
+          <h2>Skills</h2>
+          <div className="skills-grid">
+            <div>HTML5</div>
+            <div>CSS3</div>
+            <div>JavaScript</div>
+            <div>React.js</div>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <p>&copy; 2024 Pratham Shetty. All rights reserved.</p>
+      </footer>
+    </div>
+  );
+};
+
+export default App;
+
