@@ -1,0 +1,203 @@
+:root {
+   --neon-blue: #00f3ff;
+   --neon-pink: #ff00ff;
+   --dark-bg: #0a0a0a;
+   --cyber-green: #00ff00;
+}
+
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+body {
+   background-color: var(--dark-bg);
+   color: #fff;
+   font-family: 'Roboto', sans-serif;
+   line-height: 1.6;
+   overflow-x: hidden;
+}
+
+.glitch-container {
+   position: relative;
+}
+
+.scanlines {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   pointer-events: none;
+   background: linear-gradient(
+       to bottom,
+       rgba(255,255,255,0.03) 50%,
+       rgba(0,0,0,0.03) 50%
+   );
+   background-size: 100% 4px;
+   z-index: 999;
+}
+
+nav {
+   position: fixed;
+   top: 0;
+   width: 100%;
+   padding: 20px;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   background: rgba(10,10,10,0.9);
+   z-index: 1000;
+}
+
+.logo {
+   font-family: 'Orbitron', sans-serif;
+   font-size: 2em;
+   color: var(--neon-blue);
+   text-shadow: 0 0 10px var(--neon-blue);
+}
+
+nav ul {
+   display: flex;
+   list-style: none;
+}
+
+nav ul li a {
+   color: #fff;
+   text-decoration: none;
+   margin: 0 20px;
+   font-family: 'Orbitron', sans-serif;
+   position: relative;
+}
+
+nav ul li a:hover {
+   color: var(--neon-pink);
+   text-shadow: 0 0 10px var(--neon-pink);
+}
+
+.hero {
+   height: 100vh;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   text-align: center;
+   padding: 0 20px;
+}
+
+.glitch {
+   position: relative;
+   font-family: 'Orbitron', sans-serif;
+   font-size: 4em;
+   color: var(--neon-blue);
+   text-shadow: 0 0 10px var(--neon-blue);
+   animation: glitch 2s steps(100) infinite;
+}
+
+.glitch::before,
+.glitch::after {
+   content: attr(data-text);
+   position: absolute;
+   top: 0;
+   width: 100%;
+   height: 100%;
+   left: 0;
+   opacity: 0.8;
+}
+
+.glitch::before {
+   /* RGB shift to left */
+   color: var(--neon-pink);
+   animation: glitch-left 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+}
+
+.glitch::after {
+   /* RGB shift to right */
+   color: var(--neon-blue);
+   animation: glitch-right 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both infinite;
+}
+
+@keyframes glitch {
+   0% {
+      transform: translate(0);
+   }
+   20% {
+      transform: translate(-2px, 2px);
+   }
+   40% {
+      transform: translate(-2px, -2px);
+   }
+   60% {
+      transform: translate(2px, 2px);
+   }
+   80% {
+      transform: translate(2px, -2px);
+   }
+   100% {
+      transform: translate(0);
+   }
+}
+
+@keyframes glitch-left {
+   0% {
+      transform: translate(-3px, 0);
+   }
+   50% {
+      transform: translate(2px, 0);
+   }
+   100% {
+      transform: translate(-3px, 0);
+   }
+}
+
+@keyframes glitch-right {
+   0% {
+      transform: translate(3px, 0);
+   }
+   50% {
+      transform: translate(-2px, 0);
+   }
+   100% {
+      transform: translate(3px, 0);
+   }
+}
+
+.subtitle {
+   font-family: 'Orbitron', sans-serif;
+   color: var(--neon-pink);
+   margin: 20px 0;
+   font-size: 1.2em;
+}
+
+.neon-button {
+   display: inline-block;
+   padding: 15px 30px;
+   margin: 10px;
+   border: 2px solid var(--neon-blue);
+   color: var(--neon-blue);
+   text-decoration: none;
+   font-family: 'Orbitron', sans-serif;
+   text-transform: uppercase;
+   transition: all 0.3s ease;
+}
+
+.neon-button:hover {
+   background: var(--neon-blue);
+   color: var(--dark-bg);
+   box-shadow: 0 0 20px var(--neon-blue);
+}
+
+section {
+   padding: 100px 20px;
+}
+
+.section-title {
+   font-family: 'Orbitron', sans-serif;
+   font-size: 2.5em;
+   color: var(--neon-pink);
+   text-align: center;
+   margin-bottom: 50px;
+}
+
+/* Add more styles for other sections */
